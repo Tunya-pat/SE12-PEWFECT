@@ -1,0 +1,4 @@
+<section class="content-page"><span class="kicker">สำรวจบริการ</span><h1>บริการสำหรับเพื่อนตัวโปรด</h1><p class="page-subtitle">เลือกบริการเพื่อดูรายละเอียดและขั้นตอนการใช้งาน</p>
+      <div class="service-grid"><article class="service-card" *ngFor="let service of services"><span class="service-icon" [ngClass]="service.tone">{{ service.icon }}</span><h3>{{ service.title }}</h3><p>{{ service.summary }}</p><button class="card-link" type="button" (click)="selectedService = service">ดูรายละเอียด <span>→</span></button></article></div>
+      <div class="detail-panel" *ngIf="selectedService"><button class="panel-close" type="button" (click)="selectedService = null" aria-label="ปิดรายละเอียด">×</button><span class="kicker">รายละเอียดบริการ</span><h2>{{ selectedService.title }}</h2><p>{{ selectedService.detail }}</p><button class="button-primary" type="button" (click)="openDialog.emit('login')">เข้าสู่ระบบเพื่อเริ่มต้น →</button></div>
+    </section>

@@ -1,0 +1,15 @@
+<div class="site-shell">
+  <app-site-header [page]="page" (navigate)="navigate($event)" (openDialog)="open($event)" />
+  <main class="page-width">
+    <div class="toast" role="status" *ngIf="toast">{{ toast }} <button type="button" (click)="toast = ''" aria-label="ปิดข้อความ">×</button></div>
+    <app-home *ngIf="page === 'home'" [services]="services"
+      (navigate)="navigate($event)" (openDialog)="open($event)" (selectService)="showService($event)" />
+    <app-services *ngIf="page === 'services'" [services]="services" [selectedService]="selectedService"
+      (openDialog)="open($event)" />
+    <app-help *ngIf="page === 'help'" (notify)="toast = $event" />
+  </main>
+
+  <app-site-footer (navigate)="navigate($event)" />
+  <app-auth-dialog *ngIf="dialog" [dialog]="dialog" (dismiss)="dialog = null"
+    (openDialog)="open($event)" (notify)="toast = $event" />
+</div>

@@ -1,0 +1,17 @@
+<header class="site-header">
+    <div class="topbar page-width">
+      <button class="brand" type="button" (click)="navigate.emit('home')" aria-label="กลับหน้าแรก"><span class="brand-mark">🐾</span><span>Pewfect</span><small>✦ Portal</small></button>
+      <nav class="primary-nav" aria-label="เมนูหลัก">
+        <button type="button" [class.active]="page === 'home'" (click)="navigate.emit('home')">หน้าแรก</button>
+        <button type="button" [class.active]="page === 'services'" (click)="navigate.emit('services')">บริการ</button>
+        <button type="button" [class.active]="page === 'help'" (click)="navigate.emit('help')">ศูนย์ช่วยเหลือ</button>
+      </nav>
+      <div class="header-actions"><button class="login-link" type="button" (click)="openDialog.emit('login')">เข้าสู่ระบบ</button><button class="register-button" type="button" (click)="openDialog.emit('register')">ลงทะเบียน</button><button class="avatar-button" type="button" (click)="openDialog.emit('account')" aria-label="บัญชีผู้ใช้">♙</button></div>
+    </div>
+  </header>
+
+  <div class="workspace-bar">
+    <div class="page-width workspace-inner">
+      <div class="view-side"><label for="page-select">✥ หน้า:</label><select id="page-select" [ngModel]="page" (ngModelChange)="navigate.emit($event)"><option value="home">1. หน้าแรก (Landing Page)</option><option value="services">2. บริการทั้งหมด</option><option value="help">3. ศูนย์ช่วยเหลือ</option></select></div>
+    </div>
+  </div>
